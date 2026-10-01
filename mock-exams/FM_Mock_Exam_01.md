@@ -1,14 +1,14 @@
-# ACCA Financial Management (FM) — Mock Exam 01
+# ACCA Financial Management (FM): Mock Exam 01
 
-**Coverage:** The financial management function · Basic investment appraisal · Advanced DCF · Investment appraisal under uncertainty · Working capital management
-**Questions:** 25 (2 marks each, 50 marks) · **Suggested time:** 90 minutes
-**Difficulty mix:** 13 Hard (52%) · 7 Average (28%) · 5 Easy (20%)
+**Coverage:** Chapter 1 The financial management function; Chapter 2 Basic investment appraisal techniques; Chapter 3 Investment appraisal: discounted cash flow techniques; Chapter 7 Working capital management; Chapter 8 Working capital management: inventory control
+**Questions:** 25 (2 marks each, 50 marks). **Suggested time:** 90 minutes
+**Difficulty mix:** 13 Hard (52%), 7 Average (28%), 5 Easy (20%)
 
-Use discount and annuity factors from the standard ACCA tables (3 decimal places) wherever discounting is needed.
+Ignore taxation and inflation throughout. Use discount and annuity factors from the standard ACCA tables (3 decimal places) wherever discounting is needed.
 
 ---
 
-## Section A — ALL 15 questions are compulsory
+## Section A: ALL 15 questions are compulsory
 
 **1.** Identify whether each of the following statements about financial management is true or false.
 
@@ -80,107 +80,96 @@ What is the payback period of the project (to the **nearest month**)?
 
 ---
 
-**7.** Meridale Foods Co is appraising a four-year project. In current (Year 0) prices, annual sales revenue will be $500,000 and annual operating costs will be $300,000. Sales prices are expected to inflate at 4% per year and operating costs at 6% per year. General inflation is 5% per year and the company's money (nominal) cost of capital is 12%.
+**7.** Harrowgate Lettings Co has signed a contract under which it will receive $30,000 a year for five years, with the first receipt at the end of Year 3 and the last at the end of Year 7. The company's cost of capital is 8% per year.
 
-What is the present value of the project's Year 3 net operating cash flow (to the **nearest $**)?
+What is the present value of the contract receipts?
 
-- A. $142,400
-- B. $146,051
-- C. $164,846
-- D. $186,852
+- A. $78,870
+- B. $95,113
+- C. $102,690
+- D. $119,790
 
 ---
 
-**8.** Brackenfield Co has a money (nominal) cost of capital of 11.3%. General inflation is expected to be 4% per year.
+**8.** Pembury Florists Co expects a new delivery van to save $10,000 a year in courier costs for six years, starting at the end of Year 1. The cost of capital is 8% per year.
 
-What is Brackenfield Co's real cost of capital (to **one decimal place**)?
+What is the present value of the savings?
+
+- A. $37,800
+- B. $39,930
+- C. $46,230
+- D. $60,000
+
+---
+
+**9.** Brightling Software Co must pay a licence fee of $18,000 a year for five years. The first payment is due **today** and the remaining four are due at the end of Years 1 to 4. The cost of capital is 9% per year.
+
+What is the present value of the licence payments?
+
+- A. $70,020
+- B. $76,320
+- C. $88,020
+- D. $90,000
+
+---
+
+**10.** Wexcombe Plastics Co is preparing an NPV appraisal of a new production line. Which TWO of the following are relevant cash flows that should be included in the appraisal?
+
+- ☐ The annual depreciation charge on the new production equipment
+- ☐ Rent forgone on a warehouse that the company currently lets out but will use for the project
+- ☐ Interest payments on the bank loan taken out to finance the project
+- ☐ The salary of an additional supervisor who will be recruited to run the line
+- ☐ A share of existing head office costs, which will be apportioned to the project
+
+---
+
+**11.** Ostler Engineering Co is considering a project that costs $100,000 now and is expected to generate net cash inflows of $23,000 a year for six years, starting at the end of Year 1.
+
+What is the internal rate of return of the project, estimated using the annuity factors in the tables and linear interpolation (to **one decimal place**)?
 
 `______ %`
 
 ---
 
-**9.** Quillon Marine Co is evaluating a five-year project that needs a single initial investment of $200,000. The present value of the cash inflows in Years 1 to 5, discounted at the company's cost of capital of 9%, is $268,000. Cash inflows are assumed to be reinvested at the cost of capital.
+**12.** Danbridge Fixings Co uses a component at a constant rate of 1,000 units a week, 52 weeks a year. The supply lead time is a constant 3 weeks. The company orders 4,000 units at a time and keeps a buffer (safety) inventory of 1,500 units. Holding one unit in inventory for a year costs $2.50.
 
-What is the modified internal rate of return (MIRR) of the project?
+What is the annual cost of holding inventory of the component?
 
-- A. 6.0%
-- B. 15.0%
-- C. 15.6%
-- D. 17.3%
-
----
-
-**10.** Castlereagh Couriers Co must decide how often to replace its delivery vans. A new van costs $60,000. The cost of capital is 10%. Relevant data per van:
-
-| | Year 1 | Year 2 | Year 3 |
-|---|---|---|---|
-| Running costs ($) | 8,000 | 12,000 | 17,000 |
-| Trade-in value if replaced at end of year ($) | — | 36,000 | 24,000 |
-
-Running costs are paid at the end of each year.
-
-Complete the sentence (EAC to the **nearest $**):
-
-The van should be replaced every `____` years, at an equivalent annual cost of `$________`.
+- A. $5,000
+- B. $8,750
+- C. $11,250
+- D. $13,750
 
 ---
 
-**11.** Dunmore Precision Co needs a machine that costs $150,000. It has a four-year life and no residual value. The company can either buy the machine using a bank loan at 8% per year, or lease it for four years at $43,000 per year, with lease payments made **at the start of each year**. Ignore taxation.
+**13.** Fairlop Motors Co is considering moving to a just-in-time (JIT) system for purchasing its components.
 
-Which of the following is the correct conclusion?
+Which of the following statements about JIT are correct?
 
-- A. Buy the machine, because the present value of the cost is $3,811 lower than leasing
-- B. Lease the machine, because the present value of the cost is $7,584 lower than buying
-- C. Buy the machine, because total lease payments exceed the purchase price by $22,000
-- D. Lease the machine, because the present value of the cost is $3,811 lower than buying
+1. JIT relies on reliable suppliers and close long-term relationships with them
+2. JIT aims to increase buffer inventory so that production is never interrupted
+3. JIT reduces inventory holding costs but increases the risk of production stopping if a delivery fails
+4. JIT is fully compatible with taking bulk purchase discounts on large orders
+
+- A. 1 and 3 only
+- B. 1, 3 and 4 only
+- C. 2 and 4 only
+- D. 1, 2 and 3 only
 
 ---
 
-**12.** Wrenford Energy Co has $300,000 of capital available for investment this year and cannot raise more. The following projects are **divisible** and cannot be delayed:
+**14.** Kelso Tiles Co has annual revenue of $14.6 million, all on credit, and cost of sales of $10.95 million. All purchases are on credit and are equal to cost of sales. Its working capital policy targets the following periods:
 
-| Project | Initial investment ($) | NPV ($) |
+| Inventory holding period | Trade receivables collection period | Trade payables payment period |
 |---|---|---|
-| P | 120,000 | 54,000 |
-| Q | 150,000 | 60,000 |
-| R | 90,000 | 45,000 |
-| S | 100,000 | 35,000 |
+| 40 days | 50 days | 30 days |
 
-What is the maximum NPV that Wrenford Energy Co can generate (in **$'000, to the nearest $'000**)?
+Assume a 365-day year. What is Kelso Tiles Co's net investment in working capital (inventory plus trade receivables less trade payables) if these targets are met?
 
-`$______ '000`
-
----
-
-**13.** Which of the following statements concerning investment appraisal under uncertainty are correct?
-
-1. Sensitivity analysis assesses the effect of changing several project variables at the same time
-2. The sensitivity of a project to a variable is the NPV divided by the present value of the cash flows affected by that variable
-3. Simulation produces a probability distribution of the possible NPV outcomes of a project
-4. Expected values are most reliable when used for a one-off investment decision
-
-- A. 1 and 2 only
-- B. 2 and 3 only
-- C. 2, 3 and 4 only
-- D. 1 and 3 only
-
----
-
-**14.** Zephyrine Co has calculated an NPV of $36,000 for a new product. The present values of the project's cash flows are:
-
-| | $ |
-|---|---|
-| Sales revenue | 480,000 |
-| Variable costs | (288,000) |
-| Fixed costs | (96,000) |
-| Initial investment | (60,000) |
-| **NPV** | **36,000** |
-
-By what percentage could the **sales volume** fall before the project NPV became zero?
-
-- A. 7.5%
-- B. 12.5%
-- C. 18.75%
-- D. 37.5%
+- A. $1.8 million
+- B. $2.3 million
+- C. $2.4 million
+- D. $3.2 million
 
 ---
 
@@ -194,72 +183,67 @@ By what percentage could the **sales volume** fall before the project NPV became
 
 ---
 
-## Section B — ALL 10 questions are compulsory
+## Section B: ALL 10 questions are compulsory
 
-### The following scenario relates to questions 16–20
+### The following scenario relates to questions 16 to 20
 
-Orvelle Co manufactures specialist packaging and is considering buying a new moulding machine. The machine will cost $400,000 at the start of Year 1 and will have a useful life of four years, after which it will be sold for $40,000.
+Orvelle Co manufactures specialist packaging and is considering buying a new moulding machine to make a new product. Ignore taxation and inflation.
 
-- Orvelle Co can claim tax-allowable depreciation on a 25% reducing balance basis in Years 1 to 3. In Year 4, the year of disposal, no 25% allowance is claimed; instead a balancing allowance or charge is calculated as the tax written-down value at the start of Year 4 less the disposal proceeds.
-- Corporation tax is paid at 30%, one year in arrears.
-- Sales revenue in Year 1 will be $500,000 (in money terms) and will increase by 5% per year.
-- Working capital equal to 10% of the **following year's** sales revenue is required at the start of each year and is recovered in full at the end of the project.
-- The company's nominal after-tax cost of capital is 11%.
-
-The finance team has already prepared the project's nominal after-tax net cash flows:
-
-| Year | 0 | 1 | 2 | 3 | 4 | 5 |
-|---|---|---|---|---|---|---|
-| Net cash flow ($) | (450,000) | 140,000 | 180,000 | 170,000 | 150,000 | 60,000 |
-
-At a discount rate of 20%, the project has an NPV of $(13,610).
+- The machine will cost $400,000 at the start of the project. It will be used for four years and then sold for $40,000.
+- Sales of the new product, less all incremental operating costs, will generate net cash inflows of $140,000 in Year 1, $180,000 in Year 2, $170,000 in Year 3 and $150,000 in Year 4.
+- The product will be made in part of a warehouse that Orvelle Co currently lets to a tenant for $20,000 a year, received at the end of each year. The lease will end when the project starts.
+- The project will use materials that are already in inventory. They cost $30,000 last year and cannot be used in their current form elsewhere in the business. They could be sold now for $12,000, or used now as a substitute in another product, which would save $15,000 of purchases.
+- Working capital of $50,000 is needed at the start of the project and will be released in full at the end of Year 4.
+- A feasibility study for the project has already been carried out and paid for at a cost of $25,000.
+- Head office overheads of $15,000 a year will be apportioned to the project. Total head office overheads will not change.
+- Orvelle Co's cost of capital is 10% per year. At a discount rate of 20%, the project has an NPV of $(61,110).
 
 ---
 
-**16.** What tax benefit arises from the balancing allowance on the machine, and in which year is it received?
+**16.** What is the relevant cost of the materials already in inventory, to be included at the start of the project?
 
-- A. $38,625 in Year 4
-- B. $38,625 in Year 5
-- C. $50,625 in Year 5
-- D. $12,000 in Year 5
-
----
-
-**17.** What is the working capital cash flow in **Year 1** of the project?
-
-- A. $(52,500)
-- B. $(50,000)
-- C. $(2,500)
-- D. $2,500
+- A. $12,000
+- B. $15,000
+- C. $27,000
+- D. $30,000
 
 ---
 
-**18.** What is the **discounted** payback period of the project (in years, to **one decimal place**)?
+**17.** Which TWO of the following should be **excluded** from the NPV appraisal?
 
-`______ years`
+- ☐ The rent of $20,000 a year that will no longer be received
+- ☐ The feasibility study cost of $25,000
+- ☐ The working capital of $50,000
+- ☐ The head office overheads of $15,000 a year apportioned to the project
+
+---
+
+**18.** What is the net present value of the project at Orvelle Co's cost of capital (to the **nearest $**)?
+
+`$__________`
 
 ---
 
 **19.** What is the internal rate of return (IRR) of the project, using linear interpolation?
 
-- A. 12.3%
-- B. 18.7%
+- A. 13.9%
+- B. 16.1%
 - C. 20.0%
-- D. 21.8%
+- D. 27.8%
 
 ---
 
-**20.** Identify whether each of the following statements about Orvelle Co's appraisal is true or false.
+**20.** Identify whether each of the following statements about NPV and IRR is true or false.
 
 | Statement | True | False |
 |---|---|---|
-| Risk can be measured by assigning probabilities to outcomes, whereas uncertainty cannot | ☐ | ☐ |
-| If Orvelle Co calculated an expected NPV, it would show the single most likely outcome of the project | ☐ | ☐ |
-| The discounted payback period ignores all cash flows that arise after the payback point | ☐ | ☐ |
+| Where NPV and IRR give conflicting rankings for mutually exclusive projects, the NPV ranking should be preferred | ☐ | ☐ |
+| The IRR method assumes that cash inflows can be reinvested at the IRR | ☐ | ☐ |
+| A project whose cash flows change from positive to negative more than once can have only one IRR | ☐ | ☐ |
 
 ---
 
-### The following scenario relates to questions 21–25
+### The following scenario relates to questions 21 to 25
 
 Corvane Co supplies electrical components to the construction industry. Extracts from its most recent financial statements are:
 
@@ -270,14 +254,13 @@ Corvane Co supplies electrical components to the construction industry. Extracts
 | Inventory | 1.400 |
 | Trade receivables | 2.000 |
 | Trade payables | 1.120 |
+| Bank overdraft | 0.900 |
 
-80% of revenue is on credit; the rest is cash sales. Purchases on credit are 80% of cost of sales. Assume a 365-day year.
+80% of revenue is on credit; the rest is cash sales. Purchases on credit are 80% of cost of sales. Corvane Co has no cash balances. Assume a 365-day year.
 
 Corvane Co uses 64,000 units of component T7 each year at a price of $8.00 per unit. Each order costs $50 to place, and holding one unit for a year costs $1.60. The supplier has offered a 1% discount on all units if Corvane Co places orders of 8,000 units or more.
 
-A subsidiary, Corvane Logistics Co, manages its cash with the Miller-Orr model. It keeps a minimum cash balance of $20,000. Each sale or purchase of short-term investments costs $40, the standard deviation of daily net cash flows is $2,000, and investments earn 9.125% per year.
-
-Corvane Co is also reviewing its credit terms. At present customers pay at 45 days; the company is considering a 1.5% discount for payment within 10 days.
+Component T7 is used over 250 working days a year. Daily usage is 256 units on average and 320 units at most. The supplier's lead time is 7 working days on average and 10 working days at most. Corvane Co sets its reorder level so that it never runs out of T7. The board is also considering moving to just-in-time (JIT) purchasing for T7.
 
 ---
 
@@ -296,90 +279,92 @@ Corvane Co is also reviewing its credit terms. At present customers pay at 45 da
 
 ---
 
-**23.** What is the Miller-Orr return point for Corvane Logistics Co's cash balance (to the **nearest $**)?
+**23.** What is the buffer (safety) inventory of component T7 implied by Corvane Co's reorder level (in **units**)?
 
-`$__________`
-
----
-
-**24.** What is the effective annual cost to Corvane Co of offering the proposed early settlement discount?
-
-- A. 13.0%
-- B. 15.6%
-- C. 15.9%
-- D. 17.1%
+`______ units`
 
 ---
 
-**25.** Which TWO of the following statements about receivables finance and working capital funding policies are correct?
+**24.** What are Corvane Co's current ratio and quick ratio?
 
-- ☐ Non-recourse factoring transfers the risk of bad debts from the company to the factor
-- ☐ Invoice discounting involves the finance provider taking over administration of the company's sales ledger
-- ☐ An aggressive funding policy uses short-term finance for some of the permanent current assets
-- ☐ A conservative funding policy reduces liquidity risk and increases profitability
+| Option | Current ratio | Quick ratio |
+|---|---|---|
+| A | 1.68 times | 0.99 times |
+| B | 3.04 times | 1.79 times |
+| C | 1.68 times | 1.79 times |
+| D | 0.99 times | 1.68 times |
+
+---
+
+**25.** Which TWO of the following are likely consequences of Corvane Co moving to JIT purchasing for component T7?
+
+- ☐ Lower costs of holding inventory of T7
+- ☐ Smaller, more frequent deliveries, so the bulk purchase discount on orders of 8,000 units is unlikely to be taken
+- ☐ A higher buffer inventory of T7
+- ☐ Less dependence on the reliability of the supplier
 
 ---
 ---
 
 # Answer Key and Examiner Rationale
 
-| Q | Answer | Level | Format | Syllabus area |
+| Q | Answer | Level | Format | Chapter |
 |---|---|---|---|---|
-| 1 | True, False, True | Easy | T/F matrix | FM function |
-| 2 | A | Hard | Statement combination | FM function |
-| 3 | Economy, Efficiency, Effectiveness | Average | Classification grid | FM function |
-| 4 | 12.1% | Average | Numeric entry | FM function |
-| 5 | B | Hard | MCQ | Basic appraisal |
-| 6 | C | Average | MCQ | Basic appraisal |
-| 7 | B | Hard | MCQ | Advanced DCF |
-| 8 | 7.0% | Easy | Numeric entry | Advanced DCF |
-| 9 | C | Hard | MCQ | Advanced DCF |
-| 10 | 2 years, $27,332 | Hard | Numeric fill-in | Advanced DCF |
-| 11 | A | Hard | MCQ | Advanced DCF |
-| 12 | 135 | Hard | Numeric entry | Advanced DCF |
-| 13 | B | Average | Statement combination | Uncertainty |
-| 14 | C | Hard | MCQ | Uncertainty |
-| 15 | 1st and 3rd | Easy | Which TWO | Working capital |
-| 16 | B | Hard | MCQ | Advanced DCF |
-| 17 | C | Average | MCQ | Advanced DCF |
-| 18 | 3.5 years | Hard | Numeric entry | Uncertainty |
-| 19 | B | Average | MCQ | Advanced DCF |
-| 20 | True, False, True | Easy | T/F matrix | Uncertainty |
-| 21 | 50 days | Hard | Numeric entry | Working capital |
-| 22 | A | Hard | MCQ | Working capital |
-| 23 | $27,830 | Average | Numeric entry | Working capital |
-| 24 | D | Hard | MCQ | Working capital |
-| 25 | 1st and 3rd | Easy | Which TWO | Working capital |
+| 1 | True, False, True | Easy | T/F matrix | 1 FM function |
+| 2 | A | Hard | Statement combination | 1 FM function |
+| 3 | Economy, Efficiency, Effectiveness | Average | Classification grid | 1 FM function |
+| 4 | 12.1% | Average | Numeric entry | 1 FM function |
+| 5 | B | Hard | MCQ | 2 Basic investment appraisal |
+| 6 | C | Average | MCQ | 2 Basic investment appraisal |
+| 7 | C | Hard | MCQ | 3 DCF techniques |
+| 8 | C | Easy | MCQ | 3 DCF techniques |
+| 9 | B | Hard | MCQ | 3 DCF techniques |
+| 10 | 2nd and 4th | Average | Which TWO | 3 DCF techniques |
+| 11 | 10.1% | Hard | Numeric entry | 3 DCF techniques |
+| 12 | B | Hard | MCQ | 8 Inventory control |
+| 13 | A | Average | Statement combination | 8 Inventory control |
+| 14 | B | Hard | MCQ | 7 Working capital management |
+| 15 | 1st and 3rd | Easy | Which TWO | 7 Working capital management |
+| 16 | B | Hard | MCQ | 3 DCF techniques |
+| 17 | 2nd and 4th | Easy | Which TWO | 3 DCF techniques |
+| 18 | $39,150 | Hard | Numeric entry | 3 DCF techniques |
+| 19 | A | Hard | MCQ | 3 DCF techniques |
+| 20 | True, True, False | Average | T/F matrix | 3 DCF techniques |
+| 21 | 50 days | Hard | Numeric entry | 7 Working capital management |
+| 22 | A | Hard | MCQ | 8 Inventory control |
+| 23 | 1,408 units | Hard | Numeric entry | 8 Inventory control |
+| 24 | A | Average | Grid MCQ | 7 Working capital management |
+| 25 | 1st and 2nd | Easy | Which TWO | 8 Inventory control |
 
 ---
 
-### Q1 — True, False, True
+### Q1: True, False, True
 - **True.** Investment, financing and dividend decisions affect each other. For example, cash paid as dividends cannot be retained to finance investment.
 - **False.** This is the trap. Profit is an accounting measure: it ignores risk, the timing of cash flows and the cost of capital, and it can be raised by cutting R&D at the expense of future value. Shareholder wealth depends on the present value of future cash flows.
 - **True.** Working capital management is part of the FM syllabus.
 
-### Q2 — A (1 and 3 only)
+### Q2: A (1 and 3 only)
 - **(1) Correct.** Long-term share awards linked to relative TSR reward directors for creating shareholder wealth over a long horizon.
 - **(2) Incorrect.** This is the trap: it *sounds* like performance pay, but an annual bonus on reported profit encourages short-termism and creative accounting.
 - **(3) Correct.** Independent NEDs on the remuneration committee are a corporate governance safeguard.
 - **(4) Incorrect.** Long notice periods entrench directors and make failure expensive for shareholders to remove, which makes the agency problem worse.
 - Options B, C and D each include either (2) or (4).
 
-### Q3 — Economy / Efficiency / Effectiveness
+### Q3: Economy, Efficiency, Effectiveness
 - **Fuel price vs benchmark = Economy:** obtaining inputs of the right quality at the lowest cost.
 - **Journeys per vehicle per day = Efficiency:** the ratio of output to input.
 - **On-time arrival against target = Effectiveness:** how far the service meets its objectives.
 - **Trap:** candidates often call the journeys measure "effectiveness" because it sounds like an outcome. It measures *productivity of a resource*, not whether the objective was met.
 
-### Q4 — 12.1%
-TSR = (P₁ − P₀ + D) / P₀ = (5.16 − 4.80 + 0.22) / 4.80 = 0.58 / 4.80 = **12.08% → 12.1%**
+### Q4: 12.1%
+TSR = (P₁ − P₀ + D) / P₀ = (5.16 − 4.80 + 0.22) / 4.80 = 0.58 / 4.80 = **12.08%, rounded to 12.1%**
 
 Common wrong answers:
 - Capital gain only: 0.36 / 4.80 = 7.5%
 - Dividend yield only: 0.22 / 4.80 = 4.6%
 - Closing price as the denominator: 0.58 / 5.16 = 11.2%
 
-### Q5 — B (29.6%)
+### Q5: B (29.6%)
 - Total depreciation = 480,000 − 60,000 = $420,000
 - Total profit = 900,000 − 420,000 = $480,000, so average annual profit = $80,000
 - Average investment = (initial investment + scrap) / 2 = (480,000 + 60,000) / 2 = $270,000
@@ -390,107 +375,94 @@ Distractors:
 - **C (38.1%):** the main trap. It deducts the scrap value, (480,000 − 60,000) / 2 = 210,000. Scrap is **added** because the asset is never depreciated below its scrap value.
 - **D (55.6%):** uses cash flow instead of profit (150,000 / 270,000). ROCE is based on accounting profit after depreciation.
 
-### Q6 — C (3 years 1 month)
+### Q6: C (3 years 1 month)
 - Relevant outlay = 250,000 + 30,000 = $280,000. The $40,000 market research is a **sunk cost** and is excluded. Working capital is a real cash outflow and is **included**.
-- Cumulative cash flows: Y1 70,000 → Y2 160,000 → Y3 270,000. A further $10,000 is needed in Year 4: 10,000 / 120,000 × 12 = 1 month, so the answer is **3 years 1 month**.
+- Cumulative cash flows: Year 1 70,000, Year 2 160,000, Year 3 270,000. A further $10,000 is needed in Year 4: 10,000 / 120,000 × 12 = 1 month, so the answer is **3 years 1 month**.
 
 Distractors:
 - **A:** omits working capital (outlay $250,000): 2 years + 90/110 × 12 = 2 years 10 months.
 - **B:** uses the average annual inflow: 280,000 / 97,500 = 2.87 years. That method is only valid when cash flows are constant.
 - **D:** includes the sunk cost (outlay $320,000): 3 years + 50/120 × 12 = 3 years 5 months.
 
-### Q7 — B ($146,051)
-Each flow is inflated at its own specific rate, and the net figure is discounted at the money rate:
-- Sales = 500,000 × 1.04³ = $562,432
-- Costs = 300,000 × 1.06³ = $357,305
-- Net = $205,127
-- PV = 205,127 × 0.712 = **$146,051**
+### Q7: C ($102,690)
+The receipts run from Year 3 to Year 7, so use the annuity factor for Years 1 to 7 less the factor for Years 1 to 2:
+- Annuity factor = 5.206 − 1.783 = 3.423
+- PV = 30,000 × 3.423 = **$102,690**
+
+An alternative method gives the same answer to rounding: value the five receipts as an annuity one year before the first receipt (Year 2), then discount for two years: 30,000 × 3.993 × 0.857 = $102,660.
 
 Distractors:
-- **A ($142,400):** no inflation applied, but the money rate is still used (200,000 × 0.712). This is inconsistent: money rates must be applied to money cash flows.
-- **C ($164,846):** inflates the net $200,000 at the *general* rate of 5%. This shortcut, which is equivalent to discounting real flows at the real rate, only works when every cash flow inflates at the general rate. Here the specific rates differ, so it is invalid.
-- **D ($186,852):** inflates sales but not costs.
+- **A ($78,870):** subtracts the factor for Years 1 to 3 (5.206 − 2.577 = 2.629), which values only four receipts (Years 4 to 7).
+- **B ($95,113):** discounts the five-year annuity back with the Year 3 factor. This is the classic off-by-one trap: an annuity formula gives a value one year **before** the first cash flow.
+- **D ($119,790):** ignores the deferral and treats the receipts as Years 1 to 5.
 
-### Q8 — 7.0%
-Fisher equation: (1 + i) = (1 + r)(1 + h), so 1 + r = 1.113 / 1.04 = 1.0702. **r = 7.0%**
-
-Trap: simple subtraction (11.3 − 4) gives 7.3%. That is an approximation and is not acceptable.
-
-### Q9 — C (15.6%)
-MIRR = (PV of return phase / PV of investment phase)^(1/n) × (1 + rₑ) − 1
-= (268,000 / 200,000)^(1/5) × 1.09 − 1 = 1.0603 × 1.09 − 1 = **15.6%**
+### Q8: C ($46,230)
+PV = 10,000 × annuity factor (8%, 6 years) = 10,000 × 4.623 = **$46,230**
 
 Distractors:
-- **A (6.0%):** forgets to multiply by (1 + rₑ).
-- **B (15.0%):** *adds* 9% to 6.0% instead of compounding.
-- **D (17.3%):** uses n = 4 instead of 5.
+- **A ($37,800):** discounts every saving with the Year 6 factor (10,000 × 0.630 × 6).
+- **B ($39,930):** uses the five-year annuity factor (3.993).
+- **D ($60,000):** no discounting.
 
-### Q10 — Replace every 2 years at EAC $27,332
-**2-year cycle (PV of costs):**
-60,000 + 8,000(0.909) + 12,000(0.826) − 36,000(0.826)
-= 60,000 + 7,272 + 9,912 − 29,736 = $47,448
+### Q9: B ($76,320)
+A payment made today is not discounted. The other four payments form an annuity for Years 1 to 4:
+- PV = 18,000 × (1 + 3.240) = 18,000 × 4.240 = **$76,320**
 
-EAC = 47,448 / 1.736 = **$27,332**
+Distractors:
+- **A ($70,020):** treats all five payments as arriving at the end of Years 1 to 5 (18,000 × 3.890). Payments in advance are worth more in PV terms.
+- **C ($88,020):** adds 1 to the **five**-year factor, which counts six payments.
+- **D ($90,000):** no discounting.
 
-**3-year cycle (PV of costs):**
-60,000 + 7,272 + 9,912 + 17,000(0.751) − 24,000(0.751) = $71,927
+### Q10: 2nd and 4th
+Relevant cash flows are future, incremental cash flows that arise as a direct result of the decision.
+- **Rent forgone: relevant.** It is an opportunity cost: the company loses this cash inflow if the project goes ahead.
+- **Additional supervisor's salary: relevant.** It is an incremental cash cost.
+- **Depreciation: not relevant.** It is not a cash flow. The cash cost of the equipment is included when it is paid.
+- **Loan interest: not relevant.** Financing costs are allowed for in the discount rate. Including interest as a cash flow would count the cost of finance twice.
+- **Apportioned head office costs: not relevant.** Total head office costs do not change because of the project.
 
-EAC = 71,927 / 2.487 = $28,921
-
-The lowest EAC is the 2-year cycle.
+### Q11: 10.1%
+For an annuity, the IRR is the rate at which the annuity factor equals investment ÷ annual inflow:
+- Target factor = 100,000 / 23,000 = 4.348
+- Six-year annuity factors: 10% = 4.355, 11% = 4.231
+- IRR = 10% + [(4.355 − 4.348) / (4.355 − 4.231)] × 1% = 10% + 0.06% = **10.1%**
 
 Traps:
-- Comparing total PVs ($47,448 vs $71,927). Cycles of different lengths can only be compared on an *equivalent annual* basis.
-- Forgetting to net off the trade-in values.
+- Reading the factor from the five-year row: the target factor 4.348 is close to the 5-year factor at 5% (4.329), which gives about 5%.
+- Taking the reciprocal of the payback period (23,000 / 100,000 = 23.0%). That is only an approximation for very long-lived projects.
+- Stopping at 10% without interpolating, when the question asks for one decimal place.
 
-### Q11 — A (Buy, by $3,811)
-- PV of buying = $150,000
-- PV of leasing (payments **in advance**) = 43,000 × (1 + AF 8%, 3 years) = 43,000 × (1 + 2.577) = $153,811
-- Buying is cheaper by **$3,811**
+### Q12: B ($8,750)
+- Average inventory = buffer inventory + order quantity / 2 = 1,500 + 4,000 / 2 = 3,500 units
+- Holding cost = 3,500 × $2.50 = **$8,750**
 
 Distractors:
-- **B:** treats the lease as payable in arrears: 43,000 × 3.312 = $142,416. This reverses the decision. Timing of lease payments is a classic examiner trap.
-- **C:** undiscounted comparison (172,000 − 150,000). It gets the right decision for the wrong reason.
-- **D:** the right figure with the decision reversed.
+- **A ($5,000):** ignores the buffer inventory (2,000 × 2.50). Buffer inventory is held all the time, so it adds to average inventory in full.
+- **C ($11,250):** values the reorder level instead of average inventory. The reorder level is 1,500 + (1,000 × 3) = 4,500 units.
+- **D ($13,750):** uses buffer inventory plus the **whole** order quantity (5,500 units), which is the maximum inventory, not the average.
 
-### Q12 — $135,000 (enter 135)
-For divisible projects, rank by profitability index (NPV ÷ investment):
+### Q13: A (1 and 3 only)
+- **(1) True.** JIT depends on suppliers who deliver small quantities on time, which needs close long-term relationships.
+- **(2) False.** JIT aims to **eliminate** buffer inventory, not increase it.
+- **(3) True.** Lower inventory cuts holding costs, but there is no buffer to protect production if a delivery fails.
+- **(4) False.** JIT means frequent small deliveries, so large orders that earn bulk discounts are usually given up.
 
-| Project | PI | Rank |
+### Q14: B ($2.3 million)
+Each period must be applied to the right base:
+
+| Item | Workings | $m |
 |---|---|---|
-| R | 45 / 90 = 0.50 | 1 |
-| P | 54 / 120 = 0.45 | 2 |
-| Q | 60 / 150 = 0.40 | 3 |
-| S | 35 / 100 = 0.35 | 4 |
-
-Allocation of $300,000:
-- R in full: $90,000 → NPV $45,000
-- P in full: $120,000 → NPV $54,000
-- Q partly: remaining $90,000 = 60% of Q → NPV 0.6 × 60,000 = $36,000
-
-Total NPV = **$135,000**
-
-Traps:
-- Ranking by absolute NPV (Q, P, then 1/3 of R) gives $129,000.
-- Treating the projects as indivisible (best combination P + Q) gives $114,000.
-
-### Q13 — B (2 and 3 only)
-- **(1) False.** Sensitivity analysis changes **one** variable at a time, holding the others constant. That is one of its key limitations, and simulation addresses it.
-- **(2) True.** Sensitivity = NPV / PV of the flows affected by the variable.
-- **(3) True.** Simulation (Monte Carlo) produces a distribution of possible NPVs.
-- **(4) False.** An expected value is a long-run average. It is most meaningful for decisions repeated many times; for a one-off decision, the EV may not be a possible outcome at all.
-
-### Q14 — C (18.75%)
-A change in sales volume changes **both** revenue and variable costs, so the relevant cash flow is contribution:
-- PV of contribution = 480,000 − 288,000 = $192,000
-- Sensitivity = 36,000 / 192,000 = **18.75%**
+| Inventory | 10.95 × 40 / 365 | 1.2 |
+| Trade receivables | 14.60 × 50 / 365 | 2.0 |
+| Trade payables | 10.95 × 30 / 365 | (0.9) |
+| **Net working capital** | | **2.3** |
 
 Distractors:
-- **A (7.5%):** 36 / 480 is the sensitivity to **selling price**, which affects revenue only. This is the key trap: price and volume are different variables.
-- **B (12.5%):** 36 / 288 is the sensitivity to variable cost per unit.
-- **D (37.5%):** 36 / 96 is the sensitivity to fixed costs.
+- **A ($1.8m):** multiplies the cash operating cycle (40 + 50 − 30 = 60 days) by cost of sales. The cycle is a number of days; it cannot be applied to a single base because each component uses a different one.
+- **C ($2.4m):** multiplies the 60-day cycle by revenue, with the same error.
+- **D ($3.2m):** forgets to deduct trade payables.
 
-### Q15 — "A rapid increase in sales revenue" and "A lengthening of trade payables days"
+### Q15: "A rapid increase in sales revenue" and "A lengthening of trade payables days"
 Overtrading means trading beyond the working capital base. Sales grow faster than the long-term finance supporting them, so the company relies on suppliers and the overdraft.
 
 Why the others are wrong:
@@ -498,70 +470,59 @@ Why the others are wrong:
 - **Falling overdraft:** the overdraft usually *rises*.
 - **More long-term finance:** the cure for overtrading, not a symptom.
 
-### Q16 — B ($38,625 in Year 5)
-
-| | $ |
-|---|---|
-| Cost | 400,000 |
-| Year 1 TAD (25%) | (100,000) |
-| Year 2 TAD | (75,000) |
-| Year 3 TAD | (56,250) |
-| Tax written-down value at end of Year 3 | 168,750 |
-| Disposal proceeds (Year 4) | (40,000) |
-| **Balancing allowance (claimed in Year 4)** | **128,750** |
-
-Tax saving = 128,750 × 30% = **$38,625**, received in **Year 5** because tax is paid one year in arrears.
-
-Why there is no 25% allowance in Year 4: in the year an asset is sold, the normal writing-down allowance is replaced by the balancing adjustment. The balancing allowance is the whole unrelieved balance (TWDV $168,750 less proceeds $40,000), so over the four years total relief is exactly cost less proceeds: 100,000 + 75,000 + 56,250 + 128,750 = $360,000 = 400,000 − 40,000. Claiming a Year 4 allowance of 168,750 × 25% = $42,188 as well would leave a balancing allowance of only $86,562, but total relief would still be $360,000.
+### Q16: B ($15,000)
+The relevant cost of materials that are already held and not otherwise needed is their **opportunity cost**: the best alternative given up. The two alternatives are mutually exclusive, so the higher one applies:
+- Sell now: $12,000
+- Use as a substitute: saves $15,000
+- Relevant cost = **$15,000**
 
 Distractors:
-- **A:** the right amount in the wrong year. It ignores the arrears timing.
-- **C:** ignores the disposal proceeds (168,750 × 30%).
-- **D:** applies tax to the scrap value only (40,000 × 30%).
+- **A ($12,000):** uses the resale value, which is not the best alternative.
+- **C ($27,000):** adds both alternatives, but the materials can only be used once.
+- **D ($30,000):** uses the original cost, which is a sunk cost.
 
-### Q17 — C ($(2,500))
-Working capital is required at the start of each year, at 10% of that year's sales:
-- Year 0 (for Year 1 sales of $500,000): $50,000
-- Year 1 (for Year 2 sales of $525,000): $52,500
+### Q17: 2nd and 4th
+- **Feasibility study: exclude.** It has already been paid, so it is a sunk cost.
+- **Apportioned head office overheads: exclude.** Total overheads do not change, so they are not incremental.
+- **Rent forgone: include.** It is an opportunity cost.
+- **Working capital: include.** It is a cash outflow at the start, recovered at the end.
 
-Only the **incremental** $2,500 is a cash flow in Year 1, and it is an outflow.
+### Q18: $39,150
+
+| Year | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| Machine | (400,000) | | | | 40,000 |
+| Materials (opportunity cost) | (15,000) | | | | |
+| Working capital | (50,000) | | | | 50,000 |
+| Net operating inflows | | 140,000 | 180,000 | 170,000 | 150,000 |
+| Rent forgone | | (20,000) | (20,000) | (20,000) | (20,000) |
+| **Net cash flow** | **(465,000)** | **120,000** | **160,000** | **150,000** | **220,000** |
+| Discount factor at 10% | 1.000 | 0.909 | 0.826 | 0.751 | 0.683 |
+| Present value | (465,000) | 109,080 | 132,160 | 112,650 | 150,260 |
+
+NPV = **$39,150**, positive, so the project is acceptable.
+
+Traps:
+- Including the sunk feasibility study and the apportioned overheads gives an NPV of $(33,385), which wrongly rejects the project.
+- Ignoring the rent forgone gives $102,530.
+- Charging the materials at their original cost of $30,000 gives $24,150.
+- Forgetting to release the working capital in Year 4 gives $5,000.
+
+### Q19: A (13.9%)
+- NPV at 10% = $39,150 (Q18); NPV at 20% = $(61,110), as given.
+- IRR = 10% + [39,150 / (39,150 + 61,110)] × (20% − 10%) = 10% + 3.9% = **13.9%**
 
 Distractors:
-- **A:** the total requirement instead of the increment.
-- **B:** the Year 0 flow.
-- **D:** wrong sign. A *release* of working capital is an inflow; an increase is an outflow.
+- **B (16.1%):** puts the negative NPV in the numerator.
+- **C (20.0%):** picks the trial rate instead of interpolating.
+- **D (27.8%):** subtracts the NPVs in the denominator (61,110 − 39,150). The gap between a positive and a negative NPV is their *sum* in absolute terms.
 
-### Q18 — 3.5 years
-Discount factors at 11%: 0.901, 0.812, 0.731, 0.659, 0.593.
+### Q20: True, True, False
+- **True.** NPV measures the absolute increase in shareholder wealth, so it is the better guide when mutually exclusive projects rank differently.
+- **True.** This is a recognised weakness of IRR. NPV assumes reinvestment at the cost of capital, which is more realistic.
+- **False.** Non-conventional cash flows that change sign more than once can produce **multiple** IRRs, or none at all.
 
-| Year | PV ($) | Cumulative ($) |
-|---|---|---|
-| 0 | (450,000) | (450,000) |
-| 1 | 126,140 | (323,860) |
-| 2 | 146,160 | (177,700) |
-| 3 | 124,270 | (53,430) |
-| 4 | 98,850 | 45,420 |
-
-Discounted payback = 3 + 53,430 / 98,850 = 3.54 → **3.5 years**
-
-Trap: simple payback is 2 + 130,000/170,000 = 2.8 years. It ignores the time value of money, which the question explicitly asks for.
-
-### Q19 — B (18.7%)
-- NPV at 11% = cumulative PV at Year 4 (45,420) + Year 5 PV (35,580) = **$81,000**. This uses the Q18 working.
-- NPV at 20% = $(13,610), as given.
-- IRR = 11% + [81,000 / (81,000 + 13,610)] × (20% − 11%) = 11% + 7.7% = **18.7%**
-
-Distractors:
-- **A (12.3%):** puts the negative NPV in the numerator.
-- **C (20.0%):** chooses the rate at which NPV is closest to zero instead of interpolating.
-- **D (21.8%):** subtracts the negative NPV in the denominator: 81,000 / (81,000 − 13,610). The difference between a positive and a negative NPV is their *sum* in absolute terms.
-
-### Q20 — True, False, True
-- **True.** This is the standard risk/uncertainty distinction.
-- **False.** An expected NPV is a probability-weighted *average*. It may not match any single possible outcome, and it does not show the spread of risk.
-- **True.** Like simple payback, discounted payback ignores cash flows after the payback point. That is its main weakness.
-
-### Q21 — 50 days
+### Q21: 50 days
 
 | Component | Workings | Days |
 |---|---|---|
@@ -575,7 +536,7 @@ Traps:
 - Payables days on **cost of sales** instead of credit purchases: 32 days, giving a cycle of 58 days.
 - Both errors together give 48 days.
 
-### Q22 — A (Benefit of $1,520 per year)
+### Q22: A (Benefit of $1,520 per year)
 EOQ = √(2 × 50 × 64,000 / 1.60) = √4,000,000 = 2,000 units
 
 | | At EOQ (2,000 units) | At 8,000 units | Change |
@@ -590,30 +551,27 @@ Distractors:
 - **C (cost of $3,280):** uses the full order quantity as the average inventory instead of Q/2.
 - **D (benefit of $5,120):** counts only the price discount and ignores the change in ordering and holding costs.
 
-### Q23 — $27,830
-- Daily interest rate = 9.125% / 365 = 0.025% = 0.00025
-- Variance of daily cash flows = 2,000² = 4,000,000
-- Spread = 3 × [(¾ × 40 × 4,000,000) / 0.00025]^(1/3) = 3 × (480,000,000,000)^(1/3) = 3 × 7,829.7 = $23,489
-- Return point = lower limit + spread / 3 = 20,000 + 7,829.7 = **$27,830**
-- The upper limit, for reference, is 20,000 + 23,489 = $43,489.
+### Q23: 1,408 units
+- Reorder level (no stock-outs) = maximum usage × maximum lead time = 320 × 10 = 3,200 units
+- Average usage during the average lead time = 256 × 7 = 1,792 units
+- Buffer inventory = reorder level − average usage in the average lead time = 3,200 − 1,792 = **1,408 units**
 
 Traps:
-- Using the **standard deviation** instead of the **variance** gives a spread of about $1,864.
-- Using the **annual** interest rate instead of the daily rate gives a spread of about $3,287.
-- Giving the upper limit, or lower limit + spread, instead of the return point.
+- 3,200 units: the reorder level itself, not the buffer.
+- 1,792 units: the expected usage during the lead time, not the buffer.
+- 2,240 units: maximum usage × average lead time (320 × 7), which mixes the measures.
 
-### Q24 — D (17.1%)
-- The customer pays $98.50 instead of $100, and does so 45 − 10 = **35 days** earlier.
-- Periodic cost = 1.5 / 98.5 = 1.523% for 35 days
-- Annual cost = (100 / 98.5)^(365/35) − 1 = **17.1%**
+### Q24: A
+- Current ratio = (inventory + receivables) / (payables + overdraft) = (1.400 + 2.000) / (1.120 + 0.900) = 3.400 / 2.020 = **1.68 times**
+- Quick ratio = receivables / current liabilities = 2.000 / 2.020 = **0.99 times**
 
 Distractors:
-- **A (13.0%):** compounds over 45 days instead of the 35-day *acceleration* period.
-- **B (15.6%):** simple interest with the discount based on $100, i.e. 1.5% × 365/35.
-- **C (15.9%):** simple interest based on $98.50, with no compounding.
+- **B:** leaves the bank overdraft out of current liabilities (3.400 / 1.120 and 2.000 / 1.120). An overdraft is repayable on demand and is a current liability.
+- **C:** correct current ratio, but the quick ratio leaves out the overdraft.
+- **D:** the two ratios swapped. The quick ratio excludes inventory, so it can never be higher than the current ratio.
 
-### Q25 — "Non-recourse factoring…" and "An aggressive funding policy…"
-- **Non-recourse factoring: True.** The factor bears the bad debt risk; this is credit insurance.
-- **Invoice discounting: False.** Invoice discounting is purely a financing arrangement. The company keeps control of its sales ledger, and customers are usually unaware of the arrangement. Taking over the sales ledger describes *factoring*.
-- **Aggressive policy: True.** Some permanent current assets are financed short-term, which is cheaper but riskier.
-- **Conservative policy: False.** A conservative policy does reduce liquidity risk, but it uses more expensive long-term finance, so it *reduces* profitability. The trap is that only half the statement is true.
+### Q25: 1st and 2nd
+- **Lower holding costs: correct.** Very little T7 is held, so storage, insurance and financing costs fall.
+- **Bulk discount unlikely: correct.** JIT means small, frequent deliveries, so orders of 8,000 units are no longer placed and the 1% discount (worth a net $1,520 a year, Q22) is given up.
+- **Higher buffer inventory: wrong.** JIT aims to eliminate buffer inventory.
+- **Less dependence on the supplier: wrong.** JIT makes the company *more* dependent on the supplier, because there is no buffer to fall back on.
