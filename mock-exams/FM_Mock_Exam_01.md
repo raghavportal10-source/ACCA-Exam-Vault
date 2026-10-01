@@ -200,7 +200,7 @@ By what percentage could the **sales volume** fall before the project NPV became
 
 Orvelle Co manufactures specialist packaging and is considering buying a new moulding machine. The machine will cost $400,000 at the start of Year 1 and will have a useful life of four years, after which it will be sold for $40,000.
 
-- Orvelle Co can claim tax-allowable depreciation on a 25% reducing balance basis, with a balancing allowance or charge in the final year of operation.
+- Orvelle Co can claim tax-allowable depreciation on a 25% reducing balance basis in Years 1 to 3. In Year 4, the year of disposal, no 25% allowance is claimed; instead a balancing allowance or charge is calculated as the tax written-down value at the start of Year 4 less the disposal proceeds.
 - Corporation tax is paid at 30%, one year in arrears.
 - Sales revenue in Year 1 will be $500,000 (in money terms) and will increase by 5% per year.
 - Working capital equal to 10% of the **following year's** sales revenue is required at the start of each year and is recovered in full at the end of the project.
@@ -511,6 +511,8 @@ Why the others are wrong:
 | **Balancing allowance (claimed in Year 4)** | **128,750** |
 
 Tax saving = 128,750 × 30% = **$38,625**, received in **Year 5** because tax is paid one year in arrears.
+
+Why there is no 25% allowance in Year 4: in the year an asset is sold, the normal writing-down allowance is replaced by the balancing adjustment. The balancing allowance is the whole unrelieved balance (TWDV $168,750 less proceeds $40,000), so over the four years total relief is exactly cost less proceeds: 100,000 + 75,000 + 56,250 + 128,750 = $360,000 = 400,000 − 40,000. Claiming a Year 4 allowance of 168,750 × 25% = $42,188 as well would leave a balancing allowance of only $86,562, but total relief would still be $360,000.
 
 Distractors:
 - **A:** the right amount in the wrong year. It ignores the arrears timing.
