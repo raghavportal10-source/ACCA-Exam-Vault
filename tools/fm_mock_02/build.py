@@ -324,15 +324,15 @@ stem("Which stakeholder group is primarily concerned with a company's ability to
 opts(["Ordinary shareholders", "Long-term lenders", "Employees", "Customers"])
 
 Q("2")
-stem("Identify whether each of the following statements about government economic policy is true or false.")
-tf(["An increase in interest rates by a central bank will usually cause the country's currency to appreciate",
-    "Expansionary fiscal policy involves increasing taxation to reduce aggregate demand",
-    "Monetary policy is concerned with the money supply, interest rates and the availability of credit"])
+stem("Identify whether each of the following statements about asset investment decisions and capital rationing is true or false.")
+tf(["The equivalent annual cost method assumes that an asset will be replaced indefinitely with an identical asset",
+    "In a lease or buy decision, the cash flows should be discounted at the company's weighted average cost of capital",
+    "Hard capital rationing arises when a company's own management sets a limit on the funds available for investment"])
 
 Q("3")
-stem("Halloran Treasury Co has bought a 91-day Treasury bill for $98.40 per $100 nominal value and will hold it to maturity.")
-stem("What is the effective annual yield on the Treasury bill, assuming a 365-day year and that the return can be reinvested on the same terms (to **two decimal places**)?")
-answer_box("", "%")
+stem("Ellery Print Co replaces its printing press every three years. A new press costs $85,000. Running costs are $10,000 in Year 1, $14,000 in Year 2 and $18,000 in Year 3, paid at the end of each year. The press is traded in for $25,000 at the end of Year 3. The cost of capital is 12% per year.")
+stem("What is the equivalent annual cost of the three-year replacement cycle (to the **nearest $**)?")
+answer_box("$")
 
 Q("4")
 stem("The following information relates to Vantage Moorings Co for the year just ended:")
@@ -514,17 +514,17 @@ stem("If the market applied the sector average price/earnings ratio to Montclair
 opts(["$4.20", "$4.54", "$4.56", "$4.84"])
 
 Q("28")
-stem("Montclair Freight Co's finance director is studying the yield curve before refinancing the loan notes. Identify whether each of the following statements is true or false.")
-tf(["Liquidity preference theory helps to explain why a normal yield curve slopes upwards",
-    "An inverted yield curve suggests that the market expects interest rates to rise in the future",
-    "Market segmentation theory suggests that the short and long ends of the yield curve are determined by different groups of investors"])
+stem("Identify whether each of the following statements about Montclair Freight Co's current performance is true or false.")
+tf(["Montclair Freight Co's earnings yield is 6.7%",
+    "Montclair Freight Co's dividend cover is 1.78 times",
+    "Montclair Freight Co's current price/earnings ratio is higher than the sector average"])
 
 Q("29")
-stem("Montclair Freight Co raises part of its finance through banks and other financial intermediaries. Which TWO of the following are functions of financial intermediaries?")
-checks(["Maturity transformation, by lending long-term from short-term deposits",
-        "Guaranteeing a minimum return to the companies that borrow from them",
-        "Risk reduction, by pooling deposits and lending to many borrowers",
-        "Removing the need for companies to publish financial statements"])
+stem("Montclair Freight Co's lenders monitor its financial risk each year. Which TWO of the following changes would indicate that Montclair Freight Co's financial risk had increased?")
+checks(["A fall in interest cover",
+        "A rise in the dividend yield",
+        "A rise in gearing (debt/equity)",
+        "A rise in the price/earnings ratio"])
 
 Q("30")
 stem("What are Montclair Freight Co's gearing ratio (debt/equity, based on **market values**) and interest cover?")
@@ -659,34 +659,34 @@ P("Difficulty mix by marks: Hard 50, Average 30, Easy 20. In Sections A and B (6
 H("Answer summary: Sections A and B", 2)
 summary = [
     ("1", "B", "Easy", "MCQ", "1 FM function"),
-    ("2", "True, False, True", "Average", "True/False", "2 FM environment"),
-    ("3", "6.68%", "Hard", "Numeric", "2 FM environment"),
+    ("2", "True, False, False", "Average", "True/False", "5 Asset investment decisions"),
+    ("3", "$41,675", "Hard", "Numeric", "5 Asset investment decisions"),
     ("4", "D", "Hard", "MCQ", "1 FM function"),
-    ("5", "1st and 3rd", "Average", "Multi-response", "3 Working capital"),
-    ("6", "7,800 units", "Hard", "Numeric", "4 Managing WC"),
-    ("7", "1st and 3rd", "Average", "Multi-response", "4 Managing WC"),
-    ("8", "$84,853", "Average", "Numeric", "5 WC finance"),
-    ("9", "C", "Easy", "MCQ", "6 Investment decisions"),
-    ("10", "B", "Hard", "MCQ", "7 DCF"),
-    ("11", "$13,188", "Average", "Numeric", "7 DCF"),
-    ("12", "A", "Hard", "MCQ", "8 Tax and inflation"),
-    ("13", "True, False, True", "Hard", "True/False", "8 Tax and inflation"),
-    ("14", "$38,500", "Average", "Numeric", "9 Risk"),
-    ("15", "C", "Hard", "MCQ", "10 Specific decisions"),
-    ("16", "C", "Hard", "MCQ", "4 Managing WC"),
-    ("17", "A", "Hard", "MCQ", "4 Managing WC"),
-    ("18", "0.90", "Easy", "Numeric", "3 Working capital"),
-    ("19", "True, True, False", "Average", "True/False", "3 Working capital"),
-    ("20", "B", "Easy", "MCQ", "4 Managing WC"),
-    ("21", "10.0%", "Easy", "Numeric", "8 Tax and inflation"),
-    ("22", "C", "Average", "MCQ", "8 Tax and inflation"),
-    ("23", "C", "Hard", "MCQ", "8 Tax and inflation"),
-    ("24", "B", "Hard", "MCQ", "8 Tax and inflation"),
-    ("25", "B", "Average", "Statement combination", "8 Tax and inflation"),
+    ("5", "1st and 3rd", "Average", "Multi-response", "7 Working capital management"),
+    ("6", "7,800 units", "Hard", "Numeric", "8 Inventory control"),
+    ("7", "1st and 3rd", "Average", "Multi-response", "9 Receivables and payables"),
+    ("8", "$84,853", "Average", "Numeric", "10 Cash and funding"),
+    ("9", "C", "Easy", "MCQ", "2 Basic investment appraisal"),
+    ("10", "B", "Hard", "MCQ", "3 DCF techniques"),
+    ("11", "$13,188", "Average", "Numeric", "3 DCF techniques"),
+    ("12", "A", "Hard", "MCQ", "4 Further aspects of DCF"),
+    ("13", "True, False, True", "Hard", "True/False", "4 Further aspects of DCF"),
+    ("14", "$38,500", "Average", "Numeric", "6 Uncertainty"),
+    ("15", "C", "Hard", "MCQ", "5 Asset investment decisions"),
+    ("16", "C", "Hard", "MCQ", "9 Receivables and payables"),
+    ("17", "A", "Hard", "MCQ", "9 Receivables and payables"),
+    ("18", "0.90", "Easy", "Numeric", "7 Working capital management"),
+    ("19", "True, True, False", "Average", "True/False", "7 Working capital management"),
+    ("20", "B", "Easy", "MCQ", "9 Receivables and payables"),
+    ("21", "10.0%", "Easy", "Numeric", "4 Further aspects of DCF"),
+    ("22", "C", "Average", "MCQ", "4 Further aspects of DCF"),
+    ("23", "C", "Hard", "MCQ", "4 Further aspects of DCF"),
+    ("24", "B", "Hard", "MCQ", "4 Further aspects of DCF"),
+    ("25", "B", "Average", "Statement combination", "4 Further aspects of DCF"),
     ("26", "4.0%", "Easy", "Numeric", "1 FM function"),
     ("27", "B", "Hard", "MCQ", "1 FM function"),
-    ("28", "True, False, True", "Hard", "True/False", "2 FM environment"),
-    ("29", "1st and 3rd", "Average", "Multi-response", "2 FM environment"),
+    ("28", "True, False, True", "Hard", "True/False", "1 FM function"),
+    ("29", "1st and 3rd", "Average", "Multi-response", "1 FM function"),
     ("30", "A", "Hard", "Grid MCQ", "1 FM function"),
 ]
 T([["Q", "Answer", "Level", "Format", "Chapter"]] + [list(s) for s in summary],
@@ -710,17 +710,21 @@ key("Question 1: B (Long-term lenders)", [
     "- **A:** shareholders are mainly concerned with dividends and share price growth, not repayment of capital.",
     "- **C and D:** employees care about pay and job security, and customers about quality, price and continuity of supply.",
 ])
-key("Question 2: True, False, True", [
-    "- **True.** Higher interest rates attract inflows of foreign capital, which increases demand for the currency.",
-    "- **False.** This is the trap. Expansionary fiscal policy *reduces* taxation and/or increases government spending to *raise* aggregate demand. Increasing taxation is contractionary.",
-    "- **True.** This is the definition of monetary policy.",
+key("Question 2: True, False, False", [
+    "- **True.** The equivalent annual cost method compares replacement cycles of different lengths by assuming each cycle repeats indefinitely with an identical asset, ignoring inflation and technological change.",
+    "- **False.** This is the trap. A lease or buy decision is a financing decision, so the cash flows are discounted at the (after-tax) cost of borrowing, not the WACC.",
+    "- **False.** Limits set by the company's own management are **soft** capital rationing. Hard capital rationing is imposed from outside the company, for example when lenders will not provide more finance.",
 ])
-key("Question 3: 6.68%", [
-    "Return for 91 days = (100 − 98.40) / 98.40 = 1.626%",
-    "Effective annual yield = (100 / 98.40)^(365/91) − 1 = **6.68%**",
-    "Distractors:",
-    "- 6.52%: simple annualisation, 1.626% × 365/91, which ignores compounding.",
-    "- 6.42%: discount yield, (1.60 / 100) × 365/91, which uses the nominal value instead of the price paid.",
+key("Question 3: $41,675", [
+    ["table", ["Year", "Cash flow ($)", "Discount factor at 12%", "Present value ($)"],
+     ["0", "(85,000)", "1.000", "(85,000)"], ["1", "(10,000)", "0.893", "(8,930)"],
+     ["2", "(14,000)", "0.797", "(11,158)"], ["3", "(18,000) + 25,000 = 7,000", "0.712", "4,984"],
+     ["**PV of costs**", "", "", "**(100,104)**"]],
+    "Equivalent annual cost = 100,104 / annuity factor (12%, 3 years) 2.402 = **$41,675**",
+    "Traps:",
+    "- Forgetting the trade-in value gives $49,086.",
+    "- Deducting the trade-in without discounting it gives $38,678.",
+    "- Dividing the PV by 3 years instead of by the annuity factor gives $33,368. Dividing by the number of years ignores the time value of money.",
 ])
 key("Question 4: D (15.75 times)", [
     "Earnings attributable to ordinary shareholders = (4.20 − 0.60) × 75% − 0.30 = 2.70 − 0.30 = $2.40m",
@@ -886,14 +890,17 @@ key("Question 27: B ($4.54)", [
     "- **D ($4.84):** forgets to deduct preference dividends.",
 ])
 key("Question 28: True, False, True", [
-    "- **True.** Investors want extra return for tying up funds for longer, so long-term yields are higher.",
-    "- **False.** An inverted curve (long-term yields below short-term yields) suggests rates are expected to **fall**.",
-    "- **True.** Under market segmentation theory, different investor groups (for example banks at the short end, pension funds at the long end) set each end of the curve.",
+    "Earnings attributable to ordinary shareholders = 9.6 − 0.6 = $9.0m, so EPS = 9.0 / 30 = 30.0 cents.",
+    "- **True.** Earnings yield = EPS / share price = 0.30 / 4.50 = 6.7%. It is the reciprocal of the P/E ratio.",
+    "- **False.** Dividend cover = earnings attributable to ordinary shareholders / ordinary dividends = 9.0 / 5.4 = 1.67 times. The figure of 1.78 times (9.6 / 5.4) is the trap: it forgets to deduct the preference dividends first.",
+    "- **True.** Current P/E = 4.50 / 0.30 = 15.0 times, above the sector average of 14 times.",
 ])
 key("Question 29: 1st and 3rd", [
-    "Financial intermediaries also aggregate small deposits into larger loans.",
-    "- **Guaranteeing borrowers a return: wrong.** Intermediaries do not guarantee returns to borrowers.",
-    "- **Removing the need to publish accounts: wrong.** Publication of financial statements is a legal and regulatory requirement, which intermediaries do not affect.",
+    "Financial risk is the risk to shareholders from the use of debt finance: the variability of returns caused by fixed interest commitments.",
+    "- **Fall in interest cover: correct.** Profits cover the interest charge fewer times, so there is less margin of safety if profits fall.",
+    "- **Rise in gearing: correct.** More debt relative to equity increases the fixed interest burden that ranks ahead of shareholders.",
+    "- **Rise in dividend yield: wrong.** This is a market return measure. It can rise simply because the share price falls or the dividend increases.",
+    "- **Rise in P/E ratio: wrong.** A higher P/E usually reflects market confidence in future earnings growth, not higher financial risk.",
 ])
 key("Question 30: A", [
     "Market value of debt = 30m × 1.08 = $32.4m; market value of equity = 30m × $4.50 = $135m",
