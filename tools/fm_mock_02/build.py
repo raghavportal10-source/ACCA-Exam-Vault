@@ -1,9 +1,15 @@
-"""Build ACCA FM Mock Exam 02 (100 marks) as a Word document with python-docx."""
+"""Build ACCA FM Mock Exam 02 (100 marks) as two print-ready Word files with python-docx.
+
+Usage: python3 build.py <questions.docx> <answers.docx>
+(The earlier combined FM_Mock_Exam_02_100Marks.docx is no longer generated.)
+
+Formatting is strictly black and white: no colour, no shading, and a solid
+black rule (a native Word paragraph border) after every question block.
+"""
 import re
 import sys
 
 from docx import Document
-from docx.enum.section import WD_ORIENT  # noqa: F401
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml import OxmlElement
@@ -12,45 +18,16 @@ from docx.shared import Cm, Pt, RGBColor
 
 from q31 import df, q31
 
-OUT = sys.argv[1]
-ACCENT = RGBColor(0x1F, 0x38, 0x64)
-GREY = RGBColor(0x59, 0x59, 0x59)
+OUT_Q, OUT_A = sys.argv[1], sys.argv[2]
+BLACK = RGBColor(0, 0, 0)
+ACCENT = GREY = BLACK
 FONT = "Arial"
-
-doc = Document()
-sec = doc.sections[0]
-sec.page_width, sec.page_height = Cm(21.0), Cm(29.7)
-sec.left_margin = sec.right_margin = Cm(2.2)
-sec.top_margin = sec.bottom_margin = Cm(2.0)
 CONTENT_CM = 21.0 - 4.4
 
-st = doc.styles["Normal"]
-st.font.name = FONT
-st.font.size = Pt(10.5)
-st.element.rPr.rFonts.set(qn("w:eastAsia"), FONT)
-st.paragraph_format.space_after = Pt(4)
-st.paragraph_format.line_spacing = 1.12
-for name, size in (("Title", 22), ("Heading 1", 15), ("Heading 2", 12.5), ("Heading 3", 11)):
-    s = doc.styles[name]
-    s.font.name = FONT
-    s.font.size = Pt(size)
-    s.font.bold = True
-    s.font.color.rgb = ACCENT
-    s.element.rPr.rFonts.set(qn("w:asciiTheme"), FONT) if False else None
-    rf = s.element.rPr.find(qn("w:rFonts"))
-    if rf is None:
-        rf = OxmlElement("w:rFonts")
-        s.element.rPr.append(rf)
-    for a in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
-        rf.set(qn(a), FONT)
-    for a in ("w:asciiTheme", "w:hAnsiTheme", "w:cstheme", "w:eastAsiaTheme"):
-        if rf.get(qn(a)) is not None:
-            del rf.attrib[qn(a)]
-    s.paragraph_format.space_before = Pt(12 if name != "Title" else 0)
-    s.paragraph_format.space_after = Pt(6)
-    s.paragraph_format.keep_with_next = True
+doc = None
+_block_open = False
 
-# Footer with page numbers
+
 def _field(run, instr):
     for kind, text in (("begin", None), (None, instr), ("end", None)):
         if kind:
@@ -62,19 +39,99 @@ def _field(run, instr):
             el.text = text
         run._r.append(el)
 
-fp = sec.footer.paragraphs[0]
-fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-for txt, fld in (("ACCA FM — Mock Exam 02 (100 marks)    ·    Page ", None), (None, "PAGE"), (" of ", None), (None, "NUMPAGES")):
-    r = fp.add_run(txt or "")
-    r.font.size = Pt(8)
-    r.font.color.rgb = GREY
-    if fld:
-        _field(r, fld)
+
+def _set_font(style):
+    rpr = style.element.get_or_add_rPr()
+    rf = rpr.find(qn("w:rFonts"))
+    if rf is None:
+        rf = OxmlElement("w:rFonts")
+        rpr.append(rf)
+    for a in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
+        rf.set(qn(a), FONT)
+    for a in ("w:asciiTheme", "w:hAnsiTheme", "w:cstheme", "w:eastAsiaTheme"):
+        if rf.get(qn(a)) is not None:
+            del rf.attrib[qn(a)]
+
+
+def start_doc(footer_text):
+    """Create a fresh A4 document with black-and-white styles and a page-numbered footer."""
+    global doc, _block_open
+    doc = Document()
+    _block_open = False
+    sec = doc.sections[0]
+    sec.page_width, sec.page_height = Cm(21.0), Cm(29.7)
+    sec.left_margin = sec.right_margin = Cm(2.2)
+    sec.top_margin = sec.bottom_margin = Cm(2.0)
+
+    st = doc.styles["Normal"]
+    st.font.name = FONT
+    st.font.size = Pt(10.5)
+    st.font.color.rgb = BLACK
+    _set_font(st)
+    st.paragraph_format.space_after = Pt(4)
+    st.paragraph_format.line_spacing = 1.12
+    for name, size in (("Heading 1", 15), ("Heading 2", 12.5), ("Heading 3", 11), ("List Bullet", 10.5)):
+        s = doc.styles[name]
+        s.font.name = FONT
+        s.font.size = Pt(size)
+        s.font.color.rgb = BLACK
+        s.font.italic = False
+        _set_font(s)
+        if name.startswith("Heading"):
+            s.font.bold = True
+            s.paragraph_format.space_before = Pt(12)
+            s.paragraph_format.space_after = Pt(6)
+            s.paragraph_format.keep_with_next = True
+
+    fp = sec.footer.paragraphs[0]
+    fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for txt, fld in ((f"{footer_text}, page ", None), (None, "PAGE"), (" of ", None), (None, "NUMPAGES")):
+        r = fp.add_run(txt or "")
+        r.font.size = Pt(8)
+        r.font.color.rgb = BLACK
+        if fld:
+            _field(r, fld)
+
+
+def finish(path, title):
+    close_block()
+    zoom = doc.settings.element.find(qn("w:zoom"))
+    if zoom is not None and zoom.get(qn("w:percent")) is None:
+        zoom.set(qn("w:percent"), "100")
+    doc.core_properties.title = title
+    doc.core_properties.author = "ACCA Exam Vault"
+    doc.save(path)
+
+
+def rule():
+    """Solid black horizontal line: a native bottom border on an empty paragraph."""
+    p = doc.add_paragraph()
+    pPr = p._p.get_or_add_pPr()
+    bdr = OxmlElement("w:pBdr")
+    bottom = OxmlElement("w:bottom")
+    for k, v in (("w:val", "single"), ("w:sz", "8"), ("w:space", "1"), ("w:color", "000000")):
+        bottom.set(qn(k), v)
+    bdr.append(bottom)
+    pPr.append(bdr)
+    p.paragraph_format.space_before = Pt(0)
+    p.paragraph_format.space_after = Pt(8)
+
+
+def open_block():
+    global _block_open
+    _block_open = True
+
+
+def close_block():
+    global _block_open
+    if _block_open:
+        rule()
+        _block_open = False
 
 
 # ---------- helpers ----------
 def add_runs(p, text, size=None, color=None, italic=False):
-    for i, part in enumerate(re.split(r"(\*\*[^*]+\*\*)", text)):
+    for part in re.split(r"(\*\*[^*]+\*\*)", text):
         if not part:
             continue
         bold = part.startswith("**")
@@ -83,14 +140,12 @@ def add_runs(p, text, size=None, color=None, italic=False):
         r.italic = italic or None
         if size:
             r.font.size = Pt(size)
-        if color:
-            r.font.color.rgb = color
     return p
 
 
 def P(text="", size=None, align=None, after=4, before=0, keep=False, indent=None, italic=False, color=None):
     p = doc.add_paragraph()
-    add_runs(p, text, size, color, italic)
+    add_runs(p, text, size, None, italic)
     pf = p.paragraph_format
     pf.space_after = Pt(after)
     pf.space_before = Pt(before)
@@ -103,8 +158,11 @@ def P(text="", size=None, align=None, after=4, before=0, keep=False, indent=None
 
 
 def H(text, level=1, page_break=False):
+    close_block()
     h = doc.add_heading(text, level=level)
     h.paragraph_format.page_break_before = page_break
+    for r in h.runs:
+        r.font.color.rgb = BLACK
     return h
 
 
@@ -121,15 +179,6 @@ def page_break():
     doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
 
 
-def shade(cell, fill):
-    tcPr = cell._tc.get_or_add_tcPr()
-    sh = OxmlElement("w:shd")
-    sh.set(qn("w:val"), "clear")
-    sh.set(qn("w:color"), "auto")
-    sh.set(qn("w:fill"), fill)
-    tcPr.append(sh)
-
-
 def no_split(row):
     trPr = row._tr.get_or_add_trPr()
     el = OxmlElement("w:cantSplit")
@@ -137,7 +186,7 @@ def no_split(row):
 
 
 def T(rows, widths=None, header=True, size=9.5, center=None, bold_rows=(), right=None, after=8):
-    """rows: list of lists of str. widths in cm (summing to <= content width)."""
+    """rows: list of lists of str. widths in cm (summing to <= content width). Header row is bold, unshaded."""
     ncol = len(rows[0])
     if widths is None:
         first = CONTENT_CM * (0.46 if ncol > 2 else 0.6)
@@ -160,8 +209,6 @@ def T(rows, widths=None, header=True, size=9.5, center=None, bold_rows=(), right
             if (header and ri == 0) or ri in bold_rows:
                 for r in p.runs:
                     r.bold = True
-            if header and ri == 0:
-                shade(c, "D9E2F3")
             if ci in right:
                 p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
             elif ci in center or val == "☐":
@@ -170,26 +217,25 @@ def T(rows, widths=None, header=True, size=9.5, center=None, bold_rows=(), right
         t.columns[ci].width = Cm(w)
     if header:
         trPr = t.rows[0]._tr.get_or_add_trPr()
-        th = OxmlElement("w:tblHeader")
-        trPr.append(th)
+        trPr.append(OxmlElement("w:tblHeader"))
     spacer = doc.add_paragraph()
     spacer.paragraph_format.space_after = Pt(after)
     return t
 
 
 def Q(num, marks=2):
-    """Question number line; returns paragraph so the stem text follows."""
+    """Start a question block: number on the left, marks on the right."""
+    close_block()
     p = doc.add_paragraph()
-    p.paragraph_format.space_before = Pt(10)
+    p.paragraph_format.space_before = Pt(6)
     p.paragraph_format.space_after = Pt(4)
     p.paragraph_format.keep_with_next = True
-    r = p.add_run(f"{num}")
+    r = p.add_run(f"Question {num}")
     r.bold = True
-    r.font.color.rgb = ACCENT
     r = p.add_run(f"\t({marks} marks)")
     r.font.size = Pt(9)
-    r.font.color.rgb = GREY
     p.paragraph_format.tab_stops.add_tab_stop(Cm(CONTENT_CM), alignment=2)  # right
+    open_block()
     return p
 
 
@@ -240,15 +286,14 @@ def money(x, dp=0):
 
 
 # =====================================================================
-# COVER
+# QUESTION PAPER
 # =====================================================================
+start_doc("ACCA FM Mock Exam 02: Question Paper")
 P("", after=60)
 P("ACCA", size=14, color=GREY, align=WD_ALIGN_PARAGRAPH.CENTER, after=2)
-t = doc.add_paragraph(style="Title")
-t.alignment = WD_ALIGN_PARAGRAPH.CENTER
-t.add_run("Financial Management (FM)")
-P("Mock Examination 02 — 100 Marks", size=15, align=WD_ALIGN_PARAGRAPH.CENTER, after=4, color=ACCENT)
-P("Coverage: Study Text Chapters 1–10", size=11, align=WD_ALIGN_PARAGRAPH.CENTER, after=30, color=GREY)
+P("**Financial Management (FM)**", size=22, align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
+P("Mock Examination 02: 100 Marks", size=15, align=WD_ALIGN_PARAGRAPH.CENTER, after=4, color=ACCENT)
+P("Coverage: Study Text Chapters 1 to 10", size=11, align=WD_ALIGN_PARAGRAPH.CENTER, after=30, color=GREY)
 P("**Time allowed: 3 hours**", align=WD_ALIGN_PARAGRAPH.CENTER, after=24)
 T([["Section", "Content", "Marks"],
    ["A", "15 objective test questions, 2 marks each. ALL are compulsory.", "30"],
@@ -271,7 +316,7 @@ page_break()
 # =====================================================================
 # SECTION A
 # =====================================================================
-H("Section A — ALL 15 questions are compulsory and MUST be attempted", 1)
+H("Section A: ALL 15 questions are compulsory and MUST be attempted", 1)
 P("Each question is worth 2 marks.", italic=True, color=GREY)
 
 Q("1")
@@ -371,10 +416,10 @@ opts(["$128,000", "$150,000", "$153,000", "$175,000"])
 # =====================================================================
 # SECTION B
 # =====================================================================
-H("Section B — ALL 15 questions are compulsory and MUST be attempted", 1, page_break=True)
+H("Section B: ALL 15 questions are compulsory and MUST be attempted", 1, page_break=True)
 P("Each question is worth 2 marks.", italic=True, color=GREY)
 
-H("The following scenario relates to questions 16–20", 2)
+H("The following scenario relates to questions 16 to 20", 2)
 P("Halberd Textiles Co sells workwear to retailers. All of its annual sales of $21.9 million are on credit, and customers currently take an average of 40 days to pay. Bad debts are 1% of sales. The company's contribution margin is 25% of sales.")
 P("The sales director has proposed extending the credit period offered to all customers to 60 days. This is expected to increase sales by 10%. All customers, existing and new, are expected to take the full 60 days. Bad debts are expected to rise to 1.5% of total sales. There will be no change in fixed costs or inventory levels.")
 P("Halberd Textiles Co finances its working capital with an overdraft at an interest rate of 8% per year.")
@@ -407,7 +452,7 @@ opts(["To calculate the company's trade receivables collection period",
       "To assess the creditworthiness of new customers before credit is granted",
       "To calculate the allowance for bad debts required by accounting standards"])
 
-H("The following scenario relates to questions 21–25", 2)
+H("The following scenario relates to questions 21 to 25", 2)
 P("Kestrel Ridge Co is evaluating a four-year project to manufacture a new range of industrial filters. The project requires a machine costing $750,000 at the start of Year 1. The machine is specialised and is expected to be sold for $350,000 at the end of Year 4.")
 P("Forecast sales volumes are:")
 T([["Year", "1", "2", "3", "4"], ["Sales volume (units)", "40,000", "45,000", "50,000", "35,000"]])
@@ -447,7 +492,7 @@ statements(["If general inflation turns out higher than expected but the project
             "Discounting money cash flows at the real cost of capital would overstate the NPV"])
 opts(["1 and 2 only", "1 and 3 only", "2 and 3 only", "1, 2 and 3"])
 
-H("The following scenario relates to questions 26–30", 2)
+H("The following scenario relates to questions 26 to 30", 2)
 P("Montclair Freight Co is a listed logistics company. Its board is reviewing how the stock market values the company and is comparing its performance with the sector. Extracts from the latest financial statements are:")
 T([["", "$m"], ["Profit before interest and tax", "14.4"], ["Interest", "(2.4)"], ["Profit before tax", "12.0"],
    ["Tax at 20%", "(2.4)"], ["Profit after tax", "9.6"], ["Preference dividends", "(0.6)"],
@@ -490,13 +535,13 @@ T([["Option", "Gearing (debt/equity, market values)", "Interest cover"],
 # =====================================================================
 # SECTION C
 # =====================================================================
-H("Section C — BOTH questions are compulsory and MUST be attempted", 1, page_break=True)
+H("Section C: BOTH questions are compulsory and MUST be attempted", 1, page_break=True)
 
 COST, SCRAP = 2_900_000, 300_000
 npv, rows, cf, pv, twdv3 = q31(COST, SCRAP)
 npv_ovh = q31(COST, SCRAP, ovh=90_000)[0]
 
-H("Question 31 — Brindlewood Aggregates Co", 2)
+H("Question 31: Brindlewood Aggregates Co", 2)
 P("Brindlewood Aggregates Co produces construction materials. It is considering a four-year project to make a new low-carbon paving block. The finance director has prepared a draft appraisal, which included the costs of market research already carried out and a share of head office overheads, and which showed a negative NPV. You have been asked to prepare a revised appraisal.")
 for line in (
     "The project requires new machinery costing $2,900,000 at the start of Year 1. The machinery will be sold for $300,000 at the end of Year 4.",
@@ -524,8 +569,9 @@ for lab, txt, mk in (
     r = p.add_run(f"\t({mk})")
     r.bold = True
 P("**(20 marks)**", align=WD_ALIGN_PARAGRAPH.RIGHT)
+open_block()
 
-H("Question 32 — Calloway Hardware Co", 2, page_break=True)
+H("Question 32: Calloway Hardware Co", 2, page_break=True)
 P("Calloway Hardware Co is a wholesaler of tools and building supplies. All of its sales and purchases are on credit. It has grown quickly and its bank overdraft, which finances all of its current assets, has reached $5.8 million. The bank has expressed concern about the company's liquidity.")
 P("Extracts from the latest financial statements:")
 T([["", "$m"], ["Revenue", "36.50"], ["Cost of sales (equal to credit purchases)", "25.55"], ["Inventory", "4.20"],
@@ -554,6 +600,7 @@ for lab, txt, mk in (
     r = p.add_run(f"\t({mk})")
     r.bold = True
 P("**(20 marks)**", align=WD_ALIGN_PARAGRAPH.RIGHT)
+open_block()
 
 # =====================================================================
 # FORMULAE AND TABLES
@@ -593,10 +640,23 @@ P("**End of question paper**", align=WD_ALIGN_PARAGRAPH.CENTER, before=12)
 # =====================================================================
 # ANSWER KEY
 # =====================================================================
-H("Solution Key and Examiner Rationale", 1, page_break=True)
-P("Difficulty mix by marks: Hard 50 · Average 30 · Easy 20. In Sections A and B (60 marks), 14 questions are Hard, 10 Average and 6 Easy. In Section C (40 marks), 22 marks are Hard, 10 Average and 8 Easy.", italic=True, color=GREY)
+finish(OUT_Q, "ACCA FM Mock Exam 02: Question Paper")
 
-H("Answer summary — Sections A and B", 2)
+start_doc("ACCA FM Mock Exam 02: Solutions")
+P("", after=60)
+P("ACCA", size=14, align=WD_ALIGN_PARAGRAPH.CENTER, after=2)
+P("**Financial Management (FM)**", size=22, align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
+P("Mock Examination 02: Solutions and Marking Guide", size=15, align=WD_ALIGN_PARAGRAPH.CENTER, after=4)
+P("For use with the question paper FM_Mock_Exam_02_Questions.docx", size=10, align=WD_ALIGN_PARAGRAPH.CENTER, after=30)
+P("**Contents**", after=4)
+for line in ("Answer summary for Sections A and B", "Section A: worked solutions and distractor rationale (Questions 1 to 15)",
+             "Section B: worked solutions and distractor rationale (Questions 16 to 30)",
+             "Section C: full calculations, marking guides and model answers (Questions 31 and 32)"):
+    bullet(line)
+H("Solution Key and Examiner Rationale", 1, page_break=True)
+P("Difficulty mix by marks: Hard 50, Average 30, Easy 20. In Sections A and B (60 marks), 14 questions are Hard, 10 Average and 6 Easy. In Section C (40 marks), 22 marks are Hard, 10 Average and 8 Easy.", italic=True, color=GREY)
+
+H("Answer summary: Sections A and B", 2)
 summary = [
     ("1", "B", "Easy", "MCQ", "1 FM function"),
     ("2", "True, False, True", "Average", "True/False", "2 FM environment"),
@@ -636,6 +696,7 @@ H("Section A", 2, page_break=True)
 
 def key(title, lines):
     H(title, 3)
+    open_block()
     for ln in lines:
         if isinstance(ln, list):
             T(ln[1:] if ln[0] == "table" else ln, size=9)
@@ -644,24 +705,24 @@ def key(title, lines):
         else:
             P(ln)
 
-key("Q1 — B (Long-term lenders)", [
+key("Question 1: B (Long-term lenders)", [
     "Lenders are concerned with the company's ability to service and repay debt. That is why they look at interest cover and gearing, and why loan agreements include covenants.",
     "- **A:** shareholders are mainly concerned with dividends and share price growth, not repayment of capital.",
     "- **C and D:** employees care about pay and job security, and customers about quality, price and continuity of supply.",
 ])
-key("Q2 — True, False, True", [
+key("Question 2: True, False, True", [
     "- **True.** Higher interest rates attract inflows of foreign capital, which increases demand for the currency.",
     "- **False.** This is the trap. Expansionary fiscal policy *reduces* taxation and/or increases government spending to *raise* aggregate demand. Increasing taxation is contractionary.",
     "- **True.** This is the definition of monetary policy.",
 ])
-key("Q3 — 6.68%", [
+key("Question 3: 6.68%", [
     "Return for 91 days = (100 − 98.40) / 98.40 = 1.626%",
     "Effective annual yield = (100 / 98.40)^(365/91) − 1 = **6.68%**",
     "Distractors:",
     "- 6.52%: simple annualisation, 1.626% × 365/91, which ignores compounding.",
     "- 6.42%: discount yield, (1.60 / 100) × 365/91, which uses the nominal value instead of the price paid.",
 ])
-key("Q4 — D (15.75 times)", [
+key("Question 4: D (15.75 times)", [
     "Earnings attributable to ordinary shareholders = (4.20 − 0.60) × 75% − 0.30 = 2.70 − 0.30 = $2.40m",
     "EPS = 2.40 / 12 = 20.0 cents, so P/E = 3.15 / 0.20 = **15.75 times**",
     "Distractors:",
@@ -669,51 +730,51 @@ key("Q4 — D (15.75 times)", [
     "- **B (12.0):** taxes PBIT without deducting interest (EPS 26.25c).",
     "- **A (10.5):** uses profit before tax (EPS 30c).",
 ])
-key("Q5 — 1st and 3rd", [
+key("Question 5: 1st and 3rd", [
     "Cash operating cycle = inventory days + receivables days − payables days.",
     "- **Less time in inventory: correct.** It shortens the cycle.",
     "- **Longer supplier credit: correct.** More payables days reduce the cycle.",
     "- **Paying suppliers in 10 days: wrong.** It *reduces* payables days, so the cycle gets longer. The discount may still be worth taking, but that is a separate cost/benefit decision.",
     "- **Longer customer credit: wrong.** It increases receivables days.",
 ])
-key("Q6 — 7,800 units", [
+key("Question 6: 7,800 units", [
     "Reorder level = maximum usage × maximum lead time = 900 × 4 = 3,600 units",
     "Maximum inventory = reorder level + reorder quantity − (minimum usage × minimum lead time) = 3,600 + 5,000 − (400 × 2) = **7,800 units**",
     "Traps:",
     "- 8,600: leaves out the deduction for minimum usage during the minimum lead time.",
     "- 6,800: deducts average usage × average lead time (600 × 3) instead of the minimums.",
 ])
-key("Q7 — 1st and 3rd", [
+key("Question 7: 1st and 3rd", [
     "- **Credit rating damage: correct.** Persistent late payment is reported to credit agencies and damages the company's rating.",
     "- **Suppliers refusing credit: correct.** Suppliers may withdraw credit, insist on cash on delivery, or give the company lower priority.",
     "- **Longer cash operating cycle: wrong.** Paying later *shortens* the cycle. This is the benefit the company is seeking, not a risk.",
     "- **Longer inventory holding period: wrong.** Payment terms do not directly affect inventory days.",
 ])
-key("Q8 — $84,853", [
+key("Question 8: $84,853", [
     "Q = √(2 × 60 × 2,400,000 / 0.04) = √7,200,000,000 = **$84,853**",
     "At this amount, annual transaction costs (2,400,000 / 84,853 × $60 = $1,697) equal the interest forgone on the average cash balance (84,853 / 2 × 4% = $1,697).",
     "Traps:",
     "- Entering the interest rate as 4 instead of 0.04 gives $8,485.",
     "- Omitting the 2 in the formula gives $60,000.",
 ])
-key("Q9 — C", [
+key("Question 9: C", [
     "Simplicity is an *advantage* of payback, so it is the only option that is not a disadvantage.",
     "- **A, B and D** are all standard criticisms of payback.",
 ])
-key("Q10 — B ($386,000)", [
+key("Question 10: B ($386,000)", [
     "The perpetuity formula values a stream starting one year later, so a stream starting in Year 4 is valued at Year 3: 45,000 / 0.09 = $500,000",
     "Discount back three years: PV = 500,000 × 0.772 = **$386,000**",
-    "An alternative method gives the same answer to rounding: 500,000 − (45,000 × AF₁–₃ 2.531) = $386,105.",
+    "An alternative method gives the same answer to rounding: 500,000 − (45,000 × annuity factor for Years 1 to 3 of 2.531) = $386,105.",
     "Distractors:",
     "- **A ($354,000):** discounts with the Year 4 factor (0.708). This is the classic off-by-one trap.",
     "- **C ($421,000):** discounts with the Year 2 factor.",
     "- **D ($500,000):** no discounting at all.",
 ])
-key("Q11 — $13,188", [
+key("Question 11: $13,188", [
     "NPV = −250,000 + 68,000 × 3.696 + 20,000 × 0.593 = −250,000 + 251,328 + 11,860 = **$13,188**",
     "Trap: leaving out the scrap value gives $1,328.",
 ])
-key("Q12 — A ($5,069)", [
+key("Question 12: A ($5,069)", [
     "Year 2 TAD = 120,000 × 75% × 25% = $22,500",
     "Tax saving = 22,500 × 30% = $6,750, received in **Year 3** because tax is paid one year in arrears.",
     "PV = 6,750 × 0.751 = **$5,069**",
@@ -722,25 +783,25 @@ key("Q12 — A ($5,069)", [
     "- **C ($6,750):** not discounted.",
     "- **D ($6,759):** uses the Year 1 allowance (30,000 × 30% × 0.751).",
 ])
-key("Q13 — True, False, True", [
+key("Question 13: True, False, True", [
     "- **True.** The real and money methods give the same NPV when every cash flow inflates at the general rate.",
     "- **False.** Tax-allowable depreciation is based on the historic cost of the asset and is **not** inflated. This is a common error in Section C.",
     "- **True.** Working capital is held in money terms, so rising prices increase the amount needed even if volumes are unchanged. The increase is an extra cash outflow each year.",
 ])
-key("Q14 — $38,500", [
+key("Question 14: $38,500", [
     "ENPV = (0.40 × 120,000) + (0.35 × 30,000) + (0.25 × −80,000) = 48,000 + 10,500 − 20,000 = **$38,500**",
     "Note: the ENPV is not a possible outcome. There is also a 25% chance of a negative NPV, which the ENPV hides.",
 ])
-key("Q15 — C ($153,000)", [
+key("Question 15: C ($153,000)", [
     "Indivisible projects mean the feasible combinations within $500,000 must be compared:",
     ["table", ["Combination", "Cost ($'000)", "NPV ($'000)"], ["A + B", "450", "150"], ["A + C", "350", "118"],
-     ["B + C", "400", "128"], ["C + D", "450", "**153**"], ["A + D", "500", "175 — not allowed (mutually exclusive)"]],
+     ["B + C", "400", "128"], ["C + D", "450", "**153**"], ["A + D", "500", "175 (not allowed: mutually exclusive)"]],
     "Distractors:",
     "- **D ($175,000):** ignores the mutual exclusivity. Ranking by profitability index (D and A both 0.35) gives the same wrong combination, and PI ranking is only valid for divisible projects anyway.",
 ])
 
 H("Section B", 2, page_break=True)
-key("Q16 — C ($124,800)", [
+key("Question 16: C ($124,800)", [
     "Current receivables = 21.9m × 40/365 = $2.40m",
     "New sales = 21.9m × 1.10 = $24.09m, so new receivables = 24.09m × 60/365 = $3.96m",
     "Increase in receivables = $1.56m × 8% = **$124,800**",
@@ -749,7 +810,7 @@ key("Q16 — C ($124,800)", [
     "- **D ($316,800):** finances the whole new balance instead of the increase.",
     "- **A ($19,200):** grows sales but keeps 40 days.",
 ])
-key("Q17 — A (Increase of $280,350)", [
+key("Question 17: A (Increase of $280,350)", [
     "Extra contribution = 2.19m × 25% = $547,500",
     "Extra bad debts = (1.5% × 24.09m) − (1% × 21.9m) = 361,350 − 219,000 = $(142,350)",
     "Extra financing cost (Q16) = $(124,800)",
@@ -759,28 +820,28 @@ key("Q17 — A (Increase of $280,350)", [
     "- **C:** ignores the financing cost.",
     "- **D:** ignores the bad debts.",
 ])
-key("Q18 — 0.90", [
+key("Question 18: 0.90", [
     "Quick ratio = (receivables + cash) / current liabilities = (2.4 + 0.3) / (1.9 + 1.1) = 2.7 / 3.0 = **0.90**",
     "Traps:",
     "- Including inventory gives the *current* ratio, 1.50.",
     "- Leaving the overdraft out of current liabilities gives 1.42.",
 ])
-key("Q19 — True, True, False", [
+key("Question 19: True, True, False", [
     "- **True.** A conservative policy holds high levels of inventory and cash and offers generous credit.",
     "- **True.** An aggressive policy keeps the investment lower, which raises ROCE but increases liquidity risk.",
     "- **False.** Industry norms are a key influence. A supermarket and a construction company need very different levels of working capital.",
 ])
-key("Q20 — B", [
+key("Question 20: B", [
     "An aged analysis groups balances by how long they have been outstanding, so overdue accounts can be chased first.",
     "- **A:** the collection period is calculated from receivables and sales, not from an aged analysis.",
     "- **C:** new customers have no balances to analyse.",
     "- **D:** an aged analysis may help *inform* the allowance for bad debts, but that is not its main purpose for credit control.",
 ])
-key("Q21 — 10.0%", [
+key("Question 21: 10.0%", [
     "(1 + i) = 1.068 × 1.03 = 1.10004, so **i = 10.0%**",
     "Trap: simple addition (6.8% + 3%) gives 9.8%.",
 ])
-key("Q22 — C ($567,135)", [
+key("Question 22: C ($567,135)", [
     "Year 2 selling price = 30 × 1.04² = $32.448; Year 2 variable cost = 18 × 1.05² = $19.845",
     "Contribution = (32.448 − 19.845) × 45,000 = **$567,135**",
     "Distractors:",
@@ -788,7 +849,7 @@ key("Q22 — C ($567,135)", [
     "- **D ($572,886):** inflates the current contribution of $12 at the general rate of 3%.",
     "- **A ($540,000):** no inflation.",
 ])
-key("Q23 — C ($(31,824))", [
+key("Question 23: C ($(31,824))", [
     "Year 1 sales = 40,000 × 30 × 1.04 = $1,248,000, so working capital needed at Year 0 = $187,200",
     "Year 2 sales = 45,000 × 30 × 1.04² = $1,460,160, so working capital needed at Year 1 = $219,024",
     "Year 1 cash flow = increase of $31,824, an **outflow**",
@@ -797,7 +858,7 @@ key("Q23 — C ($(31,824))", [
     "- **B:** the Year 0 flow.",
     "- **D:** wrong sign.",
 ])
-key("Q24 — B (Balancing charge, $10,078 in Year 5)", [
+key("Question 24: B (Balancing charge, $10,078 in Year 5)", [
     ["table", ["", "$"], ["Cost", "750,000"], ["Year 1 TAD (25%)", "(187,500)"], ["Year 2 TAD", "(140,625)"],
      ["Year 3 TAD", "(105,469)"], ["TWDV at start of Year 4", "316,406"], ["Disposal proceeds", "(350,000)"],
      ["**Balancing charge (Year 4)**", "**33,594**"]],
@@ -808,15 +869,15 @@ key("Q24 — B (Balancing charge, $10,078 in Year 5)", [
     "- **C:** wrong year.",
     "- **D:** taxes the whole sale proceeds.",
 ])
-key("Q25 — B (1 and 3 only)", [
+key("Question 25: B (1 and 3 only)", [
     "- **(1) True.** Higher inflation raises the money cost of capital (Fisher), so fixed money cash flows are discounted more heavily.",
     "- **(2) False.** Specific inflation rates should be used where they are available.",
     "- **(3) True.** The real rate is lower than the money rate, so applying it to inflated money flows overstates the NPV.",
 ])
-key("Q26 — 4.0%", [
+key("Question 26: 4.0%", [
     "DPS = 5.4m / 30m = 18 cents, so dividend yield = 0.18 / 4.50 = **4.0%**",
 ])
-key("Q27 — B ($4.54)", [
+key("Question 27: B ($4.54)", [
     "Current EPS = (9.6 − 0.6) / 30 = 30.0 cents; forecast EPS = 30.0 × 1.08 = 32.4 cents",
     "Share price = 32.4c × 14 = **$4.54**",
     "Distractors:",
@@ -824,17 +885,17 @@ key("Q27 — B ($4.54)", [
     "- **C ($4.56):** grows profit *before* preference dividends, then deducts them.",
     "- **D ($4.84):** forgets to deduct preference dividends.",
 ])
-key("Q28 — True, False, True", [
+key("Question 28: True, False, True", [
     "- **True.** Investors want extra return for tying up funds for longer, so long-term yields are higher.",
     "- **False.** An inverted curve (long-term yields below short-term yields) suggests rates are expected to **fall**.",
     "- **True.** Under market segmentation theory, different investor groups (for example banks at the short end, pension funds at the long end) set each end of the curve.",
 ])
-key("Q29 — 1st and 3rd", [
+key("Question 29: 1st and 3rd", [
     "Financial intermediaries also aggregate small deposits into larger loans.",
     "- **Guaranteeing borrowers a return: wrong.** Intermediaries do not guarantee returns to borrowers.",
     "- **Removing the need to publish accounts: wrong.** Publication of financial statements is a legal and regulatory requirement, which intermediaries do not affect.",
 ])
-key("Q30 — A", [
+key("Question 30: A", [
     "Market value of debt = 30m × 1.08 = $32.4m; market value of equity = 30m × $4.50 = $135m",
     "Gearing (debt/equity) = 32.4 / 135 = **24.0%**; interest cover = PBIT / interest = 14.4 / 2.4 = **6.0 times**",
     "Distractors:",
@@ -845,7 +906,8 @@ key("Q30 — A", [
 
 # ---------- Section C solutions ----------
 H("Section C", 2, page_break=True)
-H("Question 31 — Brindlewood Aggregates Co", 3)
+H("Question 31: Brindlewood Aggregates Co", 3)
+open_block()
 P("**(a) Net present value** (all figures in $, money terms)")
 
 yrs = ["0", "1", "2", "3", "4", "5"]
@@ -888,7 +950,7 @@ T(tad_rows, widths=[1.3, 2.8, 6.4, 3.2, CONTENT_CM - 13.7], size=8.5, center={0,
 P(f"Check: total allowances = {money(COST)} − {money(SCRAP)} = {money(COST - SCRAP)}. No 25% writing-down allowance is claimed in Year 4; the balancing allowance replaces it.", size=9)
 
 wc_rows = [["Year", "0", "1", "2", "3", "4"],
-           ["Working capital held (10% of the coming year's sales)"] + [money(x) for x in rows["wcl"]] + ["–"],
+           ["Working capital held (10% of the coming year's sales)"] + [money(x) for x in rows["wcl"]] + ["nil"],
            ["Cash flow (increase)/release"] + [money(x) for x in rows["wc"]]]
 T(wc_rows, widths=[5.6] + [(CONTENT_CM - 5.6) / 5] * 5, size=8.5, right=range(1, 6), center=set())
 
@@ -903,7 +965,7 @@ T([["Item", "Marks"],
    ["Inflated incremental fixed costs", "1"],
    ["Exclusion of sunk cost and allocated overheads (with reasons)", "1"],
    ["Tax on operating cash flows, one year in arrears", "1"],
-   ["Tax-allowable depreciation, Years 1–3", "2"],
+   ["Tax-allowable depreciation, Years 1 to 3", "2"],
    ["Balancing allowance and its tax effect", "1"],
    ["Timing of TAD tax benefits (one year in arrears)", "1"],
    ["Working capital requirement and incremental flows", "2"],
@@ -916,7 +978,8 @@ P("**Advice (up to 2 marks).** The revised NPV is positive at about $153,000, so
 P("**Sensitivity analysis (up to 2 marks).** This measures how far each key variable (selling price, volume, variable cost, fixed costs, cost of capital) could change before the NPV fell to zero. The sensitivity margin is NPV ÷ PV of the cash flows affected by that variable. Selling price is likely to be the most sensitive variable, because the PV of sales revenue is large compared with the NPV. That tells management where to concentrate forecasting and control effort. Its limitations are that it changes one variable at a time, ignores how likely each change is, and does not give a decision rule.")
 P("**Probability analysis (up to 2 marks).** Probabilities could be assigned to different demand scenarios (for example low, expected and high volumes) to calculate an expected NPV and the probability of a negative NPV. That gives the board a measure of the risk of loss as well as the average expected return. However, the probabilities are subjective, and an expected value is a long-run average that is less meaningful for a one-off project of this size. Simulation could extend the analysis to allow several variables to change at the same time.")
 
-H("Question 32 — Calloway Hardware Co", 3, page_break=True)
+H("Question 32: Calloway Hardware Co", 3, page_break=True)
+open_block()
 inv_d = 4.20 / 25.55 * 365
 rec_d = 6.00 / 36.50 * 365
 pay_d = 3.50 / 25.55 * 365
@@ -948,10 +1011,10 @@ P("**(b) Evaluation of the factoring offer (8 marks)**", keep=True, before=6)
 T([["", "Current ($)", "With factor ($)"],
    ["Receivables balance", money(6.0e6), f"{money(new_rec)} (36.5m × 40/365)"],
    ["Finance cost: overdraft at 9%", money(base_fin), f"{money(od_int)} (20% × {money(new_rec)} × 9%)"],
-   ["Finance cost: factor advance at 10%", "–", f"{money(fac_int)} (80% × {money(new_rec)} × 10%)"],
-   ["Factor fee (1.5% × $36.5m)", "–", money(fee)],
-   ["Bad debts (1% × $36.5m)", money(bd), "– (non-recourse)"],
-   ["Credit control administration", money(admin), "– (saved)"],
+   ["Finance cost: factor advance at 10%", "nil", f"{money(fac_int)} (80% × {money(new_rec)} × 10%)"],
+   ["Factor fee (1.5% × $36.5m)", "nil", money(fee)],
+   ["Bad debts (1% × $36.5m)", money(bd), "nil (non-recourse)"],
+   ["Credit control administration", money(admin), "nil (saved)"],
    ["**Total annual cost**", f"**{money(cur_cost)}**", f"**{money(new_cost)}**"]],
   widths=[6.2, 3.4, CONTENT_CM - 9.6], size=9, right={1}, center=set())
 P(f"**Net annual benefit of factoring = {money(cur_cost)} − {money(new_cost)} = ${money(cur_cost - new_cost)}**, so the offer is financially acceptable.")
@@ -987,11 +1050,6 @@ for b in (
 
 P("**End of solution key**", align=WD_ALIGN_PARAGRAPH.CENTER, before=12)
 
-doc.core_properties.title = "ACCA FM Mock Exam 02 (100 marks)"
-doc.core_properties.author = "ACCA Exam Vault"
-zoom = doc.settings.element.find(qn("w:zoom"))
-if zoom is not None and zoom.get(qn("w:percent")) is None:
-    zoom.set(qn("w:percent"), "100")
-doc.save(OUT)
-print("saved", OUT, "NPV", round(npv), "NPV with overhead", round(npv_ovh), "factoring benefit", round(cur_cost - new_cost),
+finish(OUT_A, "ACCA FM Mock Exam 02: Solutions")
+print("saved", OUT_Q, OUT_A, "NPV", round(npv), "NPV with overhead", round(npv_ovh), "factoring benefit", round(cur_cost - new_cost),
       "COC", round(coc), "ratios", round(cur, 2), round(quick, 2))
