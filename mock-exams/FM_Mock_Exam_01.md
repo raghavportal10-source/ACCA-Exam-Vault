@@ -591,8 +591,8 @@ Distractors:
 ### Q23 — $27,830
 - Daily interest rate = 9.125% / 365 = 0.025% = 0.00025
 - Variance of daily cash flows = 2,000² = 4,000,000
-- Spread = 3 × [(¾ × 40 × 4,000,000) / 0.00025]^(1/3) = 3 × (480,000,000,000)^(1/3) = 3 × 7,830 = $23,489
-- Return point = lower limit + spread / 3 = 20,000 + 7,830 = **$27,830**
+- Spread = 3 × [(¾ × 40 × 4,000,000) / 0.00025]^(1/3) = 3 × (480,000,000,000)^(1/3) = 3 × 7,829.7 = $23,489
+- Return point = lower limit + spread / 3 = 20,000 + 7,829.7 = **$27,830**
 - The upper limit, for reference, is 20,000 + 23,489 = $43,489.
 
 Traps:
